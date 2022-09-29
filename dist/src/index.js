@@ -694,7 +694,7 @@ export default forwardRef(function ActionSheet(_a, ref) {
                         translateY: animations.translateY
                     },
                 ] })}>
-                {dimensions.height === 0 ? null : (<Animated.View {...handlers.panHandlers} onLayout={onSheetLayout} ref={panViewRef} testID={(_k = props.testIDs) === null || _k === void 0 ? void 0 : _k.sheet} style={[
+                {dimensions.height === 0 ? null : (<Animated.View onLayout={onSheetLayout} ref={panViewRef} testID={(_k = props.testIDs) === null || _k === void 0 ? void 0 : _k.sheet} style={[
                     styles.container,
                     {
                         borderTopRightRadius: 10,
@@ -721,7 +721,9 @@ export default forwardRef(function ActionSheet(_a, ref) {
                             },
                         ]
                     }}/>) : null}
-                    {gestureEnabled || props.headerAlwaysVisible ? (props.CustomHeaderComponent ? (props.CustomHeaderComponent) : (<Animated.View style={[styles.indicator, props.indicatorStyle]}/>)) : null}
+                    {gestureEnabled || props.headerAlwaysVisible ? (props.CustomHeaderComponent ? (props.CustomHeaderComponent) : (<Animated.View {...handlers.panHandlers} style={{ width: '100%' }}>
+                          <View style={[styles.indicator, props.indicatorStyle]}/>
+                        </Animated.View>)) : null}
 
                     {props === null || props === void 0 ? void 0 : props.children}
                   </Animated.View>)}
