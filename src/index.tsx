@@ -931,7 +931,6 @@ export default forwardRef<ActionSheetRef, ActionSheetProps>(
                 }}>
                 {dimensions.height === 0 ? null : (
                   <Animated.View
-                    {...handlers.panHandlers}
                     onLayout={onSheetLayout}
                     ref={panViewRef}
                     testID={props.testIDs?.sheet}
@@ -973,8 +972,12 @@ export default forwardRef<ActionSheetRef, ActionSheetProps>(
                         props.CustomHeaderComponent
                       ) : (
                         <Animated.View
-                          style={[styles.indicator, props.indicatorStyle]}
-                        />
+                          {...handlers.panHandlers}
+                          style={{width: '100%'}}>
+                          <View
+                            style={[styles.indicator, props.indicatorStyle]}
+                          />
+                        </Animated.View>
                       )
                     ) : null}
 
