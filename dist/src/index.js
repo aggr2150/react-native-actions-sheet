@@ -125,7 +125,7 @@ export default forwardRef(function ActionSheet(_a, ref) {
             ? initialValue.current
             : 0;
         notifyOffsetChange(correctedValue);
-        Animated.spring(animations.translateY, __assign(__assign({ toValue: initialValue.current, useNativeDriver: true }, config), { velocity: velocity })).start();
+        Animated.spring(animations.translateY, __assign(__assign({ toValue: initialValue.current, useNativeDriver: true }, config), { velocity: velocity })).start(props === null || props === void 0 ? void 0 : props.onAnimationComplete);
     }, 
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [animated, props.openAnimationConfig]);

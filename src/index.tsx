@@ -218,7 +218,7 @@ export default forwardRef<ActionSheetRef, ActionSheetProps>(
           useNativeDriver: true,
           ...config,
           velocity: velocity,
-        }).start();
+        }).start(props?.onAnimationComplete);
       },
       // eslint-disable-next-line react-hooks/exhaustive-deps
       [animated, props.openAnimationConfig],
