@@ -258,5 +258,8 @@ export type ActionSheetProps = {
    * Event called when the position of the ActionSheet changes. When the `position` value is 0, it means that the ActionSheet has reached top.
    */
   onChange?: (position: number, height: number) => void;
-  onAnimationComplete?: Animated.EndCallback;
+  onAnimationComplete(
+    EndResult: Animated.EndResult,
+    velocity: number | undefined,
+  ): void;
 };
