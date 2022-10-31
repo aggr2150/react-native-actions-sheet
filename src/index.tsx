@@ -219,7 +219,11 @@ export default forwardRef<ActionSheetRef, ActionSheetProps>(
           ...config,
           velocity: velocity,
         }).start(EndResult =>
-          props?.onAnimationComplete?.(EndResult, correctedValue),
+          props?.onAnimationComplete?.(
+            EndResult,
+            correctedValue,
+            actionSheetHeight.current,
+          ),
         );
       },
       // eslint-disable-next-line react-hooks/exhaustive-deps

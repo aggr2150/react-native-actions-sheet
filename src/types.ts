@@ -260,6 +260,7 @@ export type ActionSheetProps = {
   onChange?: (position: number, height: number) => void;
   onAnimationComplete?: (
     EndResult: Animated.EndResult,
+    position: number,
     height: number,
   ) => void;
 };

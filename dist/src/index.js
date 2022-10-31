@@ -125,7 +125,10 @@ export default forwardRef(function ActionSheet(_a, ref) {
             ? initialValue.current
             : 0;
         notifyOffsetChange(correctedValue);
-        Animated.spring(animations.translateY, __assign(__assign({ toValue: initialValue.current, useNativeDriver: true }, config), { velocity: velocity })).start(function (EndResult) { var _a; return (_a = props === null || props === void 0 ? void 0 : props.onAnimationComplete) === null || _a === void 0 ? void 0 : _a.call(props, EndResult, correctedValue); });
+        Animated.spring(animations.translateY, __assign(__assign({ toValue: initialValue.current, useNativeDriver: true }, config), { velocity: velocity })).start(function (EndResult) {
+            var _a;
+            return (_a = props === null || props === void 0 ? void 0 : props.onAnimationComplete) === null || _a === void 0 ? void 0 : _a.call(props, EndResult, correctedValue, actionSheetHeight.current);
+        });
     }, 
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [animated, props.openAnimationConfig]);
