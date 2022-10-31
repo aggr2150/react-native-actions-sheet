@@ -1,7 +1,6 @@
 import React from 'react';
 import { Animated, ViewStyle } from 'react-native';
 export declare type ActionSheetProps = {
-    onAnimationComplete: Animated.EndCallback;
     children: React.ReactNode;
     /**
      * A unique id for the ActionSheet. You must set this if you are using `SheetManager`.
@@ -217,5 +216,6 @@ export declare type ActionSheetProps = {
      * Event called when the position of the ActionSheet changes. When the `position` value is 0, it means that the ActionSheet has reached top.
      */
     onChange?: (position: number, height: number) => void;
+    onAnimationComplete?: Animated.EndCallback;
 };
 //# sourceMappingURL=types.d.ts.map
