@@ -539,14 +539,20 @@ export default forwardRef(function ActionSheet(_a, ref) {
                 actionSheetHeight.current +
                     minTranslateValue.current -
                     (actionSheetHeight.current * offset) / 100;
-            Animated.spring(animations.translateY, __assign({ toValue: initialValue.current, useNativeDriver: true }, props.openAnimationConfig)).start();
+            Animated.spring(animations.translateY, __assign({ toValue: initialValue.current, useNativeDriver: true }, props.openAnimationConfig)).start(function (EndResult) {
+                var _a;
+                return (_a = props === null || props === void 0 ? void 0 : props.onAnimationComplete) === null || _a === void 0 ? void 0 : _a.call(props, EndResult, initialValue.current, actionSheetHeight.current);
+            });
         },
         snapToIndex: function (index) {
             if (index > snapPoints.length || index < 0)
                 return;
             currentSnapIndex.current = index;
             initialValue.current = getNextPosition(index);
-            Animated.spring(animations.translateY, __assign({ toValue: initialValue.current, useNativeDriver: true }, props.openAnimationConfig)).start();
+            Animated.spring(animations.translateY, __assign({ toValue: initialValue.current, useNativeDriver: true }, props.openAnimationConfig)).start(function (EndResult) {
+                var _a;
+                return (_a = props === null || props === void 0 ? void 0 : props.onAnimationComplete) === null || _a === void 0 ? void 0 : _a.call(props, EndResult, initialValue.current, actionSheetHeight.current);
+            });
         },
         handleChildScrollEnd: function () {
             console.warn('handleChildScrollEnd has been removed. Please use `useScrollHandlers` hook to enable scrolling in ActionSheet');

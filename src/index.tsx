@@ -705,7 +705,13 @@ export default forwardRef<ActionSheetRef, ActionSheetProps>(
             toValue: initialValue.current,
             useNativeDriver: true,
             ...props.openAnimationConfig,
-          }).start();
+          }).start(EndResult =>
+            props?.onAnimationComplete?.(
+              EndResult,
+              initialValue.current,
+              actionSheetHeight.current,
+            ),
+          );
         },
         snapToIndex: (index: number) => {
           if (index > snapPoints.length || index < 0) return;
@@ -715,7 +721,13 @@ export default forwardRef<ActionSheetRef, ActionSheetProps>(
             toValue: initialValue.current,
             useNativeDriver: true,
             ...props.openAnimationConfig,
-          }).start();
+          }).start(EndResult =>
+            props?.onAnimationComplete?.(
+              EndResult,
+              initialValue.current,
+              actionSheetHeight.current,
+            ),
+          );
         },
         handleChildScrollEnd: () => {
           console.warn(
